@@ -15,6 +15,7 @@ const capitalize = string => {
 };
 
 const camelCase = string => {
+    if(typeof(string) === "string" && string) return "";
     let res = capitalize(string);
 
     while(res.search(' ') != -1) {
@@ -24,7 +25,7 @@ const camelCase = string => {
     return res;
 };
 
-const snake_case = () => {
+const snake_case = (string) => {
     if(typeof(string) === "string" && string) return "";
 
     while(string.search(' ') != -1) {
@@ -37,7 +38,8 @@ const snake_case = () => {
 const leet = string => {
     const map = {'A': '4', 'E':'3', 'I':'1', 'O':'0', 'U':'(_)', 'Y':'7'};
     const split = string.split();
-    const res =  split.map(char => {
+    const res = split.map(char => {
+        char = char.toUpperCase();
         return map[char] ? map[char] : char;
     });
     return res.join('');
@@ -51,7 +53,7 @@ const prop_access = (object, attribute) => {
     for(let i = 0 ; i< attrs.length ; ++i) {
 
         if(!object[attrs[i]]){
-            console.log(attrs.slice(0, i+1).join('.'), 'not exist');
+            console.log(`${attrs.slice(0, i+1).join('.')} not exist`);
             return;
         }
         object = object[attrs[i]];
@@ -73,7 +75,7 @@ const yoda = string => {
 
 const vig = (string, key) => {
     for(let i=0; i<string.length ;++i ) {
-        string[i] = (string.charCodeAt(i) + key.charCodeAt(i % key.length)) % 26;
+        string[i] = String.fromCharCode((string.charCodeAt(i) + key.charCodeAt(i % key.length)) % 26);
     }
     return string;
 };
