@@ -1,11 +1,11 @@
 const ucfirst = string => {
-    return (typeof(string) === 'string' && str) ? 
+    return (typeof(string) === 'string' && string) ? 
             (string[0].toUpperCase())+string.splice(1)
         : '';
 };
 
 const capitalize = string => {
-    if(typeof(string) === "string" && str) return "";
+    if(typeof(string) === "string" && string) return "";
 
     const split = string.split(" ");
     const res = split.map(word => {
@@ -25,7 +25,7 @@ const camelCase = string => {
 };
 
 const snake_case = () => {
-    if(typeof(string) === "string" && str) return "";
+    if(typeof(string) === "string" && string) return "";
 
     while(string.search(' ') != -1) {
         const spacePosition = string.search(' ');
